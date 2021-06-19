@@ -12,6 +12,10 @@ with open(csvpath) as csvfile:
     # Loop through looking for number of the month
     month_count = 0
     total = 0
+    change = 0 
+    prev_PL = 0
+    tot_change = 0
+
     #Skip the header
     next(csvreader, None)
 
@@ -20,14 +24,22 @@ with open(csvpath) as csvfile:
         month_count += 1
         #The net total amount of "Profit/Losses"
         total += int(row[1])
-    
+        if month_count ==1:
+            prev_PL = int(row[1])      
+        else:
+            change = int(row[1]) - prev_PL
+            tot_change += change
+            prev_PL = int(row[1])
+    average_change = round(tot_change / (month_count - 1), 2)
 
 print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months: {month_count}") 
 print(f"Total: ${total}")
+print(f"Average  Change: ${average_change}")
 
-print("Average  Change: $-2315.12")
+#print (f"Total change: {tot_change}")
+
 print("Greatest Increase in Profits: Feb-2012 ($1926159)")
 print("Greatest Decrease in Profits: Sep-2013 ($-2196167)")
 
