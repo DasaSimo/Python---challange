@@ -3,6 +3,11 @@ import os
 import csv
 
 votes_count  = 0
+candidates = []
+cand_votes = []
+
+
+
 
 # Set path for file
 csvpath = os.path.join("Resources", "election_data.csv")
@@ -14,20 +19,24 @@ with open(csvpath) as csvfile:
  #Skip the header
     next(csvreader, None)
 
+
+
     for row in csvreader:
-        #The total number of votes
+         #* The total number of votes cast
         votes_count += 1
+        name = row[2]
+        if name in candidates:
+            position = candidates.index(name)
+            cand_votes[position] += 1
+        else:
+            candidates.append(name)
+            cand_votes.append(1) 
 
 
 
-# printing final statement 
-print("Election Results")
-print("-------------------------")
-print(f"Total Votes:  {votes_count}")   
-print("-------------------------")
 
 
-#* The total number of votes cast
+
 
 # * A complete list of candidates who received votes
 
@@ -53,3 +62,10 @@ print("-------------------------")
 
 #* In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
+# printing final statement 
+print("Election Results")
+print("-------------------------")
+print(f"Total Votes:  {votes_count}")   
+print("-------------------------")
+print(candidates)
+print(cand_votes)
