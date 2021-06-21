@@ -5,7 +5,7 @@ import csv
 
 # Set path for file
 csvpath = os.path.join("Resources", "budget_data.csv")
-# Open the CSV
+# Read the csvpath
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
@@ -56,7 +56,7 @@ print(f"Greatest Decrease in Profits: {max_dec_date}  $({max_dec_value})")
 
 
 # Open the file and write text
-with open("Financial_analysis.txt", 'w' ) as textfile:
+with open(os.path.join("Analysis","Financial_analysis.txt"), 'w' ) as textfile:
     print("Financial Analysis", file = textfile)
     print("----------------------------", file = textfile)
     print(f"Total Months: {month_count}", file = textfile) 

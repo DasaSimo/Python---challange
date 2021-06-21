@@ -53,7 +53,7 @@ print(f"Winner: {candidates[position]}")
 print("-------------------------")
 
 # Opening the new file and writing text
-with open("Election Results.txt", 'w' ) as textfile:
+with open(os.path.join("Analysis","Election Results.txt"), 'w' ) as textfile:
         print("Election Results", file = textfile)
         print("----------------------------", file = textfile)
         print(f"Total Votes:  {votes_count}", file = textfile)   
