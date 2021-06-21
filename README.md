@@ -10,4 +10,4 @@ Logic is implemented in main.py to calculate the total number of months in the d
 ## PyPoll
 The analyzed data is from an election, where dataset is composed from information about “Voter ID”, “County” and “Candidate”, in CSV format. The script was created to analyze and calculate the total number of votes cast. For complete list of candidates, the percentage of votes received as well as total number of votes was calculated and based on this information the winner of the election was determined. 
 
-[Election Results](PyPoll/Analysis/Election%20results.txt)
+[Election Results](PyPoll/Analysis/Election%20Results.txt)
